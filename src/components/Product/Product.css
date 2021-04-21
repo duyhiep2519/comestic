@@ -1,0 +1,87 @@
+.product {
+  position: relative;
+  height: 400px;
+}
+.product-content {
+  width: 100%;
+}
+.product-content img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 90%;
+  height: auto;
+}
+.product-overlay {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  top: 0px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+.product:hover .product-detail {
+  background-color: #15b38c;
+}
+.product-detail {
+  position: absolute;
+  top: 65%;
+  left: 0;
+  text-align: center;
+  width: 90%;
+  padding: 20px 20px 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: changBg linear 0.5s;
+}
+@keyframes changBg {
+  from {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  to {
+    background-color: #15b38c;
+  }
+}
+.product-button {
+  position: absolute;
+  left: 28%;
+  top: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100px;
+}
+.product-button i {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  margin-right: 0px;
+  background-color: #838383;
+  text-align: center;
+  color: var(--text);
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.3s ease;
+  animation: fade linear 0.3s ease;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.product-button i:hover {
+  cursor: pointer;
+  background-color: #15b38c;
+  color: #fff;
+}
+
+.product:hover .product-button i {
+  transform: scale(1);
+  opacity: 1;
+}

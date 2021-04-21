@@ -1,6 +1,10 @@
 .product {
   position: relative;
   height: 400px;
+  text-align: center;
+}
+.product + .product {
+  margin-bottom: 20px;
 }
 .product-content {
   width: 100%;
@@ -8,7 +12,7 @@
 .product-content img {
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: 5%;
   width: 90%;
   height: auto;
 }
@@ -27,7 +31,7 @@
 .product-detail {
   position: absolute;
   top: 65%;
-  left: 0;
+  left: 5%;
   text-align: center;
   width: 90%;
   padding: 20px 20px 20px;
@@ -44,7 +48,7 @@
 }
 .product-button {
   position: absolute;
-  left: 28%;
+  left: 35%;
   top: 40%;
   display: flex;
   align-items: center;

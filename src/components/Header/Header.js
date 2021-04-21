@@ -91,9 +91,6 @@ const Header = () => {
           </ul>
         </div>
       </div>
-      <nav className="breadcum">
-        <Link to="/">Home/</Link>
-      </nav>
     </header>
   );
 };

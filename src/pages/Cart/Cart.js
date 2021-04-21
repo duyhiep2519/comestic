@@ -4,9 +4,9 @@ import Layout from "Layout/Layout";
 const Cart = () => {
   return (
     <Layout title="Cart" description="Your Cart">
-      <div className="cart">
-        <h2>Your Cart</h2>
-        <div className="cart-header row">
+      <div className="cart row">
+        <div className="cart-title col c-12"></div>
+        <div className="cart-header col c-12 row">
           <span className="cart-header-left col l-4 m-4 c-12">Product</span>
           <div className="cart-header-right col l-8 m-8 c-0">
             <div className="cart-header-right-inner">

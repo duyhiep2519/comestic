@@ -1,8 +1,11 @@
 import React from "react";
 import "./Product.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addProduct } from "redux/cartSlice";
 
 const Product = (props) => {
+  const dispatch = useDispatch();
   const product = props;
   return (
     <div className="product col l-3 m-6 c-12">
@@ -25,7 +28,12 @@ const Product = (props) => {
         </div>
       </Link>
       <div className="product-button">
-        <i className="fas fa-cart-plus"></i>
+        <i
+          onClick={() => {
+            dispatch(addProduct("Hello"));
+          }}
+          className="fas fa-cart-plus"
+        ></i>
         <i className="fas fa-eye"></i>
         <i className="fas fa-heart"></i>
       </div>

@@ -52,7 +52,7 @@ const Header = () => {
         <div className="header-icon">
           <span className="fa fa-shopping-basket">
             <div className="cart-icon-quantity">{count}</div>
-            {count == 0 ? (
+            {count === 0 ? (
               <div className="header-setting">
                 <p>
                   Your cart is currently empty{" "}
@@ -79,15 +79,15 @@ const Header = () => {
             </div>
           </span>
           <span className="menu-icon">
-            <label for="nav-input" className="fa fa-bars"></label>
+            <label htmlFor="nav-input" className="fa fa-bars"></label>
           </span>
         </div>
         <input id="nav-input" type="checkbox" />
-        <label for="nav-input" className="header-list-overlay"></label>
+        <label htmlFor="nav-input" className="header-list-overlay"></label>
 
         <div className="header-list-mobile">
           <span>
-            <label for="nav-input" className="fa fa-times"></label>
+            <label htmlFor="nav-input" className="fa fa-times"></label>
           </span>
           <ul className="header-ul-mobile">
             <li className="header-li-mobile">

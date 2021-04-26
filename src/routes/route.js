@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Home, Cart } from "pages";
+import { Home, Cart, Login, Register } from "pages";
 import { Slide } from "components";
 const Routes = () => {
   const [visible, setVisible] = useState(false);
@@ -38,6 +38,8 @@ const Routes = () => {
         <Route exact path="/" component={Home} />
         <Route path="/cart" component={Cart} />
         <Route path="/slide" component={Slide} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
       </Switch>
     </Router>
   );

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import "./Cart.css";
+import { calcPrice, formatCash } from "helpers/formatPrice";
 import Layout from "Layout/Layout";
-import { useSelector, useDispatch } from "react-redux";
-import { addProduct, removeProduct, deleteProduct } from "redux/cartSlice";
-import { calcBil, calcPrice, formatCash } from "helpers/formatPrice";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addProduct, deleteProduct, removeProduct } from "redux/cartSlice";
+import "./Cart.css";
 const Cart = () => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState();

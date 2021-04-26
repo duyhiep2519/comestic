@@ -6,7 +6,7 @@ const Toolbar = () => {
   return (
     <div className="toolbar">
       <div className="filter-sort">
-        <label for="sort-by">Sort by</label>
+        <label htmlFor="sort-by">Sort by</label>
 
         <input type="text" id="sort-by" value={sort} />
 
@@ -15,7 +15,7 @@ const Toolbar = () => {
         </span>
       </div>
       <div className="show">
-        <label for="show">Show</label>
+        <label htmlFor="show">Show</label>
 
         <input type="text" id="show" value={sort} />
 

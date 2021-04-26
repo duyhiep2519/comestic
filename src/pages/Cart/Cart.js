@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Cart.css";
 import Layout from "Layout/Layout";
+import { useSelector, useDispatch } from "react-redux";
+import { addProduct, removeProduct, deleteProduct } from "redux/cartSlice";
+import { calcBil, calcPrice, formatCash } from "helpers/formatPrice";
 const Cart = () => {
+  const dispatch = useDispatch();
+  const [products, setProducts] = useState();
+  const cart = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    setProducts(cart.cart);
+  }, [cart.cart, products]);
+
   return (
     <Layout title="Cart" description="Your Cart">
       <div className="cart row">
@@ -17,52 +28,66 @@ const Cart = () => {
             </div>
           </div>
         </div>
-        <div className="cart-product row">
-          <div className="cart-product-name col l-4 m-4 c-12">
-            <img
-              alt="img"
-              src="//cdn.shopify.com/s/files/1/2706/6204/products/12_402ef72f-0946-49d5-b7cd-e0298eccd0cb.jpg?v=1517819922"
-            />
-            <span> COLD CREAM LOTION</span>
-          </div>
-          <div className="cart-product-detail  col l-8 m-8 c-12">
-            <div className="cart-product-detail-inner">
-              <div className="cart-price">
-                <p className="cart-detail-mobile">Price</p>
-                100000k
+        {products &&
+          products.map((product, key) => (
+            <div className="cart-product row" key={key}>
+              <div className="cart-product-name col l-4 m-4 c-12">
+                <img
+                  alt="img"
+                  src={`http://localhost:8888/${product.product.image[1]}`}
+                />
+                <span> {product.product.name}</span>
               </div>
-              <div className="cart-quantity">
-                <p className="cart-detail-mobile">Quantity</p>
-                <div className="cart-quantity-btn">
-                  <input
-                    type="button"
-                    value="-"
-                    className="btn-minus btn-cart"
-                  />
-                  <input
-                    type="text"
-                    value="1"
-                    min="0"
-                    className="btn-quantity"
-                  />
-                  <input
-                    type="button"
-                    value="+"
-                    className="btn-plus btn-cart"
-                  />
+              <div className="cart-product-detail  col l-8 m-8 c-12">
+                <div className="cart-product-detail-inner">
+                  <div className="cart-price">
+                    <p className="cart-detail-mobile">Price</p>
+                    {formatCash(product.product.price)} vnd (-
+                    <span className="cart-sale">{product.product.sale}%</span>)
+                  </div>
+                  <div className="cart-quantity">
+                    <p className="cart-detail-mobile">Quantity</p>
+                    <div className="cart-quantity-btn">
+                      <input
+                        type="button"
+                        value="-"
+                        className="btn-minus btn-cart"
+                        onClick={() => {
+                          if (product.quantity > 0) {
+                            dispatch(removeProduct(product.product));
+                          }
+                        }}
+                      />
+                      <input
+                        type="text"
+                        value={product.quantity}
+                        className="btn-quantity"
+                      />
+                      <input
+                        type="button"
+                        value="+"
+                        className="btn-plus btn-cart"
+                        onClick={() => {
+                          dispatch(addProduct(product.product));
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="cart-total">
+                    <p className="cart-detail-mobile">Total</p>
+                    {formatCash(calcPrice(product))} vnd
+                  </div>
+                  <div className="cart-remove">
+                    <p className="cart-detail-mobile">Remove</p>
+                    <i
+                      className="fa fa-trash"
+                      onClick={() => dispatch(deleteProduct(product.product))}
+                    ></i>
+                  </div>
                 </div>
               </div>
-              <div className="cart-total">
-                <p className="cart-detail-mobile">Total</p>
-                200
-              </div>
-              <div className="cart-remove">
-                <p className="cart-detail-mobile">Remove</p>
-                <i className="fa fa-trash"></i>
-              </div>
             </div>
-          </div>
-        </div>
+          ))}
       </div>
     </Layout>
   );

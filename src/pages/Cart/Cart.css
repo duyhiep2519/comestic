@@ -55,10 +55,15 @@
 .cart-product-name {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 .cart-product-name img {
   max-width: 50%;
+}
+.cart-product-name span {
+  padding: 100px 15px;
+  font-size: 16px;
+  text-transform: capitalize;
 }
 .cart-remove i,
 .cart-price,
@@ -86,6 +91,23 @@
 .btn-quantity:focus {
   outline: none;
 }
+@media (min-width: 740px) and (max-width: 1024px) {
+  .cart-remove i,
+  .cart-price,
+  .cart-quantity,
+  .cart-total {
+    font-size: 14px;
+    min-width: 80px;
+    text-align: center;
+  }
+  .cart-product-detail-inner {
+    padding: 50px 0 0 0;
+  }
+  .cart-product-name span {
+    font-size: 10px;
+    padding: 50px 0;
+  }
+}
 @media (max-width: 739px) {
   .cart-header {
     margin-top: 40%;
@@ -112,4 +134,7 @@
   .cart-detail-mobile {
     font-size: 14px;
   }
+}
+.cart-sale {
+  color: rgb(214, 57, 57);
 }

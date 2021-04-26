@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home, Cart } from "pages";
+import { Slide } from "components";
 const Routes = () => {
   const [visible, setVisible] = useState(false);
   const prevY = useRef(0);
@@ -36,6 +37,7 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/cart" component={Cart} />
+        <Route path="/slide" component={Slide} />
       </Switch>
     </Router>
   );

@@ -1,7 +1,7 @@
 header {
   height: 140px;
   background: var(--background-color);
-  z-index: 999;
+  z-index: 99;
   padding: 0px;
   float: left;
   width: 100%;
@@ -196,4 +196,17 @@ header {
   .breadcum {
     display: none;
   }
+}
+
+.cart-icon-quantity {
+  position: absolute;
+  top: -140%;
+  left: 55%;
+  background-color: #333;
+  width: 20px;
+  height: 20px;
+  padding-top: 2px;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
 }

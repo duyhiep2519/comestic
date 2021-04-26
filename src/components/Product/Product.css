@@ -89,3 +89,12 @@
   transform: scale(1);
   opacity: 1;
 }
+.modal-exit {
+  font-size: 26px;
+  color: #15b38c;
+  cursor: pointer;
+  position: absolute;
+  top: -40%;
+  right: -250%;
+  z-index: 100;
+}

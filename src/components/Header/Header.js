@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Header.css";
 import logo from "static/logo.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cart = useSelector((state) => state.cart);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setCount(cart.sumProduct);
+  }, [cart]);
   return (
     <header>
       <div className="top-bar">
@@ -44,13 +51,23 @@ const Header = () => {
         </div>
         <div className="header-icon">
           <span className="fa fa-shopping-basket">
-            <div className="header-setting">
-              <p>
-                Your cart is currently empty <i className="far fa-sad-tear"></i>
-              </p>
+            <div className="cart-icon-quantity">{count}</div>
+            {count == 0 ? (
+              <div className="header-setting">
+                <p>
+                  Your cart is currently empty{" "}
+                  <i className="far fa-sad-tear"></i>
+                </p>
 
-              <p>Continue shopping</p>
-            </div>
+                <p>Continue shopping</p>
+              </div>
+            ) : (
+              <div className="header-setting">
+                <p>
+                  <Link to="/cart">Go to your cart</Link>
+                </p>
+              </div>
+            )}
           </span>
           <span className="fa fa-search"></span>
           <span className="fa fa-cog">

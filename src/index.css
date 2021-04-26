@@ -46,7 +46,7 @@ ul {
   padding: 0;
 }
 
-.grid .wide {
+.grid.wide {
   max-width: 1200px;
   margin: 0 auto;
 }
